@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Countries-App/static/css/main.33ec1aef.css",
+    "main.js": "/Countries-App/static/js/main.b0144765.js",
+    "static/media/location.svg": "/Countries-App/static/media/location.d7e8f7a1f745dc566e737cca229a1a62.svg",
+    "static/media/searching-data.svg": "/Countries-App/static/media/searching-data.145d13d6999ea7cdf6984f309cd06224.svg",
+    "static/media/page-not-found.svg": "/Countries-App/static/media/page-not-found.18d5e44cd39d6f48121ceb005477bc56.svg",
+    "index.html": "/Countries-App/index.html",
+    "main.33ec1aef.css.map": "/Countries-App/static/css/main.33ec1aef.css.map",
+    "main.b0144765.js.map": "/Countries-App/static/js/main.b0144765.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33ec1aef.css",
+    "static/js/main.b0144765.js"
+  ]
+}
