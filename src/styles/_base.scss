@@ -1,0 +1,44 @@
+@import "./reset";
+//fonts
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+//functions
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+//variables
+$primary: #3d89e9;
+$primaryHover: #134e96;
+$black: #052750;
+$grey: #e0e2e4;
+$white: #f9fbfc;
+$blackLight: #707474;
+$iconFont: 2.2rem;
+
+//font weight
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+$font-family: "Poppins", sans-serif;
+
+:root {
+  font-size: 12px;
+  font-weight: weight(regular);
+  font-family: $font-family;
+}
+
+
+//typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family;
+  font-weight: weight(regular);
+}

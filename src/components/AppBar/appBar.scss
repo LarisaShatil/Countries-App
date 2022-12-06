@@ -1,0 +1,42 @@
+@import "../../styles/base";
+
+.appbar {
+  height: auto;
+  padding: 1rem 10rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  &__box,
+  &__cart-wrapper,
+  &__cart-counter,
+  &__item-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item-right {
+    width: 10rem;
+    justify-content: space-between;
+
+    svg.MuiSvgIcon-root {
+      font-size: 2.2rem;
+      cursor: pointer;
+    }
+  }
+
+  &__box {
+    justify-content: space-between;
+  }
+
+  &__cart-counter {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: $white;
+  }
+}
+
+

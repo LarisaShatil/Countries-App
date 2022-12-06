@@ -1,0 +1,25 @@
+@import "../../styles/base";
+
+.sidebar {
+  font-family: $font-family;
+  &__drawer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 2rem 3rem;
+
+    svg.MuiSvgIcon-root {
+      font-size: $iconFont;
+      cursor: pointer;
+    }
+  }
+
+  .MuiPaper-root
+    .MuiPaper-elevation
+    .MuiPaper-elevation16
+    .MuiDrawer-paper
+    .MuiDrawer-paperAnchorRight
+    .css-1nnoypx-MuiPaper-root-MuiDrawer-paper {
+    background-color: pink;
+  }
+}
