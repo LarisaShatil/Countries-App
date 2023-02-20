@@ -1,9 +1,6 @@
 import React from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import {
-  Box,
-  Typography,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 import Search from "../Search/Search";
@@ -17,15 +14,13 @@ interface AppBarProps {
 }
 
 const AppBar = (props: AppBarProps) => {
-  const {onClick, drawerState} = props;
+  const { onClick, drawerState } = props;
   const cartCountries = useSelector(getCartCountries);
-  const number = cartCountries.length || 0;
+  const cartItemCount = cartCountries.length || 0;
 
-
-    const onDrawerClose = () => {
-      onClick(!drawerState);
-    };
-
+  const onDrawerClose = () => {
+    onClick(!drawerState);
+  };
 
   return (
     <Box className="appbar" sx={{ backgroundColor: "primary.main" }}>
@@ -58,7 +53,7 @@ const AppBar = (props: AppBarProps) => {
               className="appbar__cart-counter"
               sx={{ backgroundColor: "text.logo" }}
             >
-              {number}
+              {cartItemCount}
             </Box>
           </div>
         </div>

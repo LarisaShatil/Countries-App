@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Drawer, makeStyles, Typography } from "@mui/material";
+import { Box, Drawer, Typography } from "@mui/material";
+
 import { useSelector } from "react-redux";
 
 import { getCartCountries } from "../../redux/selectors";
@@ -12,8 +13,7 @@ interface Props {
   drawerState: boolean;
 }
 
-const CartSideBar = (props: Props) => {
-  const { onClick, drawerState } = props;
+const CartSideBar: React.FC<Props> = ({ onClick, drawerState }) => {
   const cartCountries = useSelector(getCartCountries);
 
   const onBarClose = () => {
@@ -22,13 +22,7 @@ const CartSideBar = (props: Props) => {
 
   return (
     <Box className="sidebar">
-      <Drawer
-        anchor="right"
-        open={drawerState}
-        onClose={onBarClose}
-        className="sidebar__drawer"
-        sx={{ color: "text.primary", width: "40rem" }}
-      >
+      <Drawer anchor="right" open={drawerState} onClose={onBarClose}>
         <Box className="sidebar__drawer-content">
           <HighlightOffIcon
             onClick={onBarClose}
@@ -39,9 +33,7 @@ const CartSideBar = (props: Props) => {
           {cartCountries.length > 0 ? (
             <CartList countries={cartCountries} />
           ) : (
-            <Typography sx={{ color: "text.primary", padding: "2rem", fontFamily:"inherit", fontSize: "1.5rem" }}>
-              No items in the cart
-            </Typography>
+            <Typography>No items in the cart</Typography>
           )}
         </Box>
       </Drawer>

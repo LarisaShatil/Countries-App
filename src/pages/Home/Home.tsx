@@ -13,8 +13,6 @@ import NotFound from "../../components/NotFound/NotFound";
 import Footer from "../../components/Footer/Footer";
 import { Box } from "@mui/material";
 
-
-
 const Home = () => {
   const dispatch = useAppDispatch();
   const { countries, isLoading, filter } = useSelector(getAllCountries);
@@ -42,7 +40,7 @@ const Home = () => {
       {isLoading && <Loading />}
       {!isLoading &&
         (filteredCountries.length > 0 ? (
-          <Box sx={{height:'100%', paddingBottom:'7rem',}}>
+          <Box sx={{ height: "100%", paddingBottom: "7rem" }}>
             <CountriesTable countriesList={filteredCountries} />
           </Box>
         ) : (

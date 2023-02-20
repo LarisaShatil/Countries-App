@@ -21,13 +21,12 @@ import { addToCart, deleteFromCart } from "../../redux/cartSlice";
 import CountriesTableHead from "./CountriesTableHead";
 import FavouriteItem from "../FavouriteItem/FavouriteItem";
 
-type CountryTableProp = {
+interface Props {
   countriesList: CountryItem[];
-};
+}
 
-const CountryTable = (countriesList: CountryTableProp) => {
+const CountryTable: React.FC<Props> = ({ countriesList }) => {
   const dispatch = useAppDispatch();
-  const countries = countriesList.countriesList;
   const cartCountries = useSelector(getCartCountries);
   const location = useLocation();
 
@@ -63,7 +62,7 @@ const CountryTable = (countriesList: CountryTableProp) => {
       <Table>
         <CountriesTableHead />
         <TableBody>
-          {countries
+          {countriesList
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((item: CountryItem) => (
               <TableRow key={item.name.official}>
@@ -79,7 +78,7 @@ const CountryTable = (countriesList: CountryTableProp) => {
                   />
                 </TableCell>
 
-                <TableCell >
+                <TableCell>
                   <Link
                     className="country-table__link"
                     to={`country/${item.name.official}`}
@@ -123,7 +122,7 @@ const CountryTable = (countriesList: CountryTableProp) => {
       </Table>
       <TablePagination
         component="div"
-        count={countries.length}
+        count={countriesList.length}
         page={page}
         onPageChange={handleChangePage}
         rowsPerPage={rowsPerPage}

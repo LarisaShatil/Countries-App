@@ -11,33 +11,29 @@ import {
   deleteFromFavourites,
 } from "../../redux/favouritesSlice";
 
-type Props = {
+interface Props {
   id: string;
-};
+}
 
-const FavouriteItem = ({id}: Props) => {
+const FavouriteItem: React.FC<Props> = ({ id }) => {
   const dispatch = useAppDispatch();
-  const str: string = id;
-  const favourites:string[] = useSelector(getFavourites);
-  const findIndex = (str: string) => favourites.indexOf(str);
+  const favourites: string[] = useSelector(getFavourites);
 
-  const checkValue = (str: string) => {
-    const index = findIndex(str);
+  const isFavourite = (id: string) => favourites.includes(id);
+  const checkValue = isFavourite(id) ? (
+    <FavoriteIcon sx={{ color: "primary.favourite" }} />
+  ) : (
+    <FavoriteBorderIcon sx={{ color: "primary.favourite" }} />
+  );
 
-    if (index >= 0) return <FavoriteIcon sx={{ color: "primary.favourite" }} />;
-    if (index === -1)
-      return <FavoriteBorderIcon sx={{ color: "primary.favourite" }} />;
-  };
-
-  const onClick = (str: string) => {
-    findIndex(str) === -1
-      ? dispatch(addToFavourites(str))
-      : dispatch(deleteFromFavourites(str));
-  };
+  const onClick = (id: string) =>
+    isFavourite(id)
+      ? dispatch(deleteFromFavourites(id))
+      : dispatch(addToFavourites(id));
 
   return (
-    <div onClick={() => onClick(str)}>
-      <Button>{checkValue(str)}</Button>
+    <div onClick={() => onClick(id)}>
+      <Button>{checkValue}</Button>
     </div>
   );
 };

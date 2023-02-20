@@ -8,7 +8,7 @@ const NotFound = () => {
   return (
     <div className="notFoundBox">
       <Typography variant="h2" sx={{ color: "primary.main" }}>
-        Ooops! Try again!
+        Oops! Try again!
       </Typography>
       <ReactSVG width="40%" />
     </div>

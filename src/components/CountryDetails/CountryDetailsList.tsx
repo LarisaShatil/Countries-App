@@ -10,41 +10,32 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import CheckIcon from "@mui/icons-material/Check";
 
 import { Currencies, Language } from "../../types.ts";
-import "./countryList.scss";
+import "./countryDetailsList.scss";
 
 const ListItem = (item: string) => {
   return (
-    <ListItemButton key={item} sx={{ pl: 8, fontFamily: "Poppins !important" }}>
+    <ListItemButton key={item} sx={{ pl: 8 }}>
       <CheckIcon sx={{ pr: 1 }} />
-      <ListItemText sx={{ fontFamily: "Poppins !important" }} primary={item} />
+      <ListItemText primary={item} />
     </ListItemButton>
   );
 };
 
-type Props = {
+interface Props {
   list: Language | Currencies | undefined;
   text: string;
-};
+}
 
-export default function CountryList({list, text}: Props) {
+const CountryDetailsList: React.FC<Props> = ({ list, text }) => {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
   };
 
-  let listValues = [];
+  let listValues = list ? Object.values(list) : [];
 
-  if (list) {
-    text === "Languages" &&
-      Object.values(list).map((item) => listValues.push(item));
-
-    if (text === "Currencies") {
-      let currencies = Object.values(list);
-
-      for (let i = 0; i < currencies.length; i++) {
-        listValues.push(currencies[i].name);
-      }
-    }
+  if (text === "Currencies") {
+    listValues = listValues.map((currency) => currency.name);
   }
 
   return (
@@ -79,4 +70,6 @@ export default function CountryList({list, text}: Props) {
       </Collapse>
     </List>
   );
-}
+};
+
+export default CountryDetailsList;

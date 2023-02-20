@@ -8,10 +8,10 @@ type Props = {
   country: CountryItem;
 };
 
-const CartListItem = ({ country }: Props) => {
+const CartListItem: React.FC<Props> = ({ country }) => {
   const location = useLocation();
   return (
-    <ListItem key={country.name.official} sx={{cursor: "pointer"}}>
+    <ListItem sx={{ cursor: "pointer" }}>
       <Box
         sx={{
           width: "3rem",
